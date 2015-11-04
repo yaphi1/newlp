@@ -257,31 +257,15 @@ PRODUCT SECTION
 
 
 
-
-
-/*********************************************************
-CD SECTION
-**********************************************************/
-
-.cd_section{
-	background: #555;
-	color: #ddd;
-	text-align: center;
-
-	margin-top: 0px;
-	border-top-right-radius: 0px;
-	border-top-left-radius: 0px;
+/* hide non-default product modules */
+#s3_upsell_module, #l1_module{
+	display: none;
 }
 
-.cd_button{
-	color: #ddd;
-	border: 1px solid #ddd;
-	border-radius: 30px;
-	font-size: 15px;
-	padding: 10px;
-	display: inline-block;
-	margin: 15px 0px;
-}
+
+
+
+
 
 
 
@@ -714,30 +698,23 @@ MASTHEAD
 
 
 
+
+
+	
+
 	<!-- *****************************************************
-	PRODUCT INFO
+	* DEFAULT *  PRODUCT INFO - DOWNLOAD + 24-MONTH MOBILE ACCESS
 	****************************************************** -->
 
-	<div class="content_block product_section">
-		<div id="subscription_info">
-			<img class="product_image" src="./assets/ipad-optimized.png" alt="rosetta stone is optimized for ipad">
+	<div id="download_plus_24_module" class="content_block product_section">
+		<img class="product_image" src="./assets/ipad-optimized.png" alt="rosetta stone is optimized for ipad">
 
-			<ul class="product_bullets">
-				<li><span>Stuff will go here. This is just sample text.</span></li>
-				<li><span>Stuff will go here. This is just sample text.</span></li>
-				<li><span>Stuff will go here. This is also just sample text.</span></li>
-			</ul>
-		</div>
-
-		<div id="download_info">
-			<img class="product_image" src="./assets/ipad-optimized.png" alt="rosetta stone is optimized for ipad">
-
-			<ul class="product_bullets">
-				<li><span>DOWNLOAD INFO GOES HERE Stuff will go here. This is just sample text.</span></li>
-				<li><span>Stuff will go here. This is just sample text.</span></li>
-				<li><span>Stuff will go here. This is also just sample text.</span></li>
-			</ul>
-		</div>
+		<ul class="product_bullets">
+			<li><span>Rosetta Stone&reg; download for your desktop computer</span></li>
+			<li><span>Learn with our award-winning app for 24 months</span></li>
+			<li><span>Perfect pronunciation with live online tutoring</span></li>
+			<li><span>Practice what you've learned with our online games and social community</span></li>
+		</ul>
 
 		<div>
 			<div class="product_strikeprice">
@@ -754,13 +731,64 @@ MASTHEAD
 
 
 
+
+	
+
 	<!-- *****************************************************
-	CD SECTION
+	PRODUCT INFO - S3 UPSELL MODULE
 	****************************************************** -->
 
-	<div class="content_block cd_section">
-		<a class="cd_button" href="http://www.rosettastone.com/lp/sbs/sitewide/">CD or <span id="other_product">Download</span> also available</a>
+	<div id="s3_upsell_module" class="content_block product_section">
+		<img class="product_image" src="./assets/ipad-optimized.png" alt="rosetta stone is optimized for ipad">
+
+		<ul class="product_bullets">
+			<li><span>Learn to share your ideas and opinions, express feelings, and talk everyday life. This includes your interests, profession, current events, and more.</span></li>
+			<li><span>Unlimited access for you and your family</span></li>
+			<li><span>Available as a CD-ROM or Download</span></li>
+		</ul>
+
+		<div>
+			<div class="product_strikeprice">
+				<span class="dollar_sign">$</span><span>499</span>
+			</div>
+			<div class="product_mainprice">
+				<span class="dollar_sign">$</span><span>209</span>
+			</div>
+		</div>
+		<a id="add_to_cart" href="#" class="standard_button add_to_cart">Add to Cart</a>
 	</div>
+
+
+
+
+
+	
+
+	<!-- *****************************************************
+	PRODUCT INFO - L1 CD MODULE
+	****************************************************** -->
+
+	<div id="l1_module" class="content_block product_section">
+		<img class="product_image" src="./assets/ipad-optimized.png" alt="rosetta stone is optimized for ipad">
+
+		<ul class="product_bullets">
+			<li><span>Gain Confidence by mastering basic conversational skills. This includes greetings, introductions, simple Q&As, and much more.</span></li>
+			<li><span>Unlimited Access for you and your family</span></li>
+			<li><span>Available as a CD-ROM</span></li>
+		</ul>
+
+		<div>
+			<div class="product_strikeprice">
+				<span class="dollar_sign">$</span><span>499</span>
+			</div>
+			<div class="product_mainprice">
+				<span class="dollar_sign">$</span><span>159</span>
+			</div>
+		</div>
+		<a id="add_to_cart" href="#" class="standard_button add_to_cart">Add to Cart</a>
+	</div>
+
+
 
 </div>
 
@@ -974,24 +1002,56 @@ FOOTER
 <script>
 
 
+/************************************************************
+URL PARAMETER HELPER FUNCTIONS
+*************************************************************/
+
+function parameterMatches(param,val){
+	var reg = new RegExp('[?&]'+param+'='+val+'(?=[&]|$)','i');
+	return !!window.location.search.match(reg);
+}
+
+function parameterExists(param){
+	var reg = new RegExp('[?&]'+param+'=','i');
+	return !!window.location.search.match(reg);
+}
+
+function getParameter(param){
+	var reg = new RegExp('[?&]'+param+'=([^&]+)','i');
+	return parameterExists(param) ? window.location.search.match(reg)[1] : '';
+}
 
 
-// if download url parameter, change main product
-if(window.location.search.match(/product=download/i)){
-	document.getElementById('subscription_info').style.display = 'none';
-	document.getElementById('download_info').style.display = 'block';
 
-	document.getElementById('other_product').innerHTML = 'Subscription';
+
+
+
+
+
+// handle S3 product
+if(parameterMatches('product','s3')){
+	document.getElementById('download_plus_24_module').style.display = 'none';
+	document.getElementById('s3_upsell_module').style.display = 'block';
+}
+
+
+
+
+// handle L1 product
+if(parameterMatches('product','l1')){
+	document.getElementById('download_plus_24_module').style.display = 'none';
+	document.getElementById('l1_module').style.display = 'block';
 }
 
 
 
 
 // if language parameter, change selected language
-if(window.location.search.match(/lang=/i)){
-	var lang = window.location.search.match(/lang=([^&]+)/i)[1];
-	document.getElementById('select_language').value = lang;
+if(parameterExists('lang')){
+	document.getElementById('select_language').value = getParameter('lang');
 }
+
+
 
 
 
