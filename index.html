@@ -32,6 +32,7 @@ body{
 	font-size: 20px;
 	background: #f8f6f0;
 	color: #554;
+	line-height: 1.4;
 }
 
 a svg, a img, a{
@@ -111,11 +112,11 @@ SELECT LANGUAGE & FIVE PAY
 
 .five_pay_message{
 	text-transform: uppercase;
-	font-size: 16px;
+	font-size: 26px;
 }
 
 .five_pay_container{
-	font-size: 25px;
+	font-size: 38px;
 	font-weight: 700;
 	text-transform: none;
 }
@@ -175,13 +176,19 @@ PRODUCT SECTION
 	background: #fff;
 	border: 1px solid #e8e6e0;
 	text-align: center;
-	padding: 20px 10px;
+	padding: 20px 10px 40px;
 
-	margin-top: 30px;
-	margin-bottom: 0px;
-	border-bottom-right-radius: 0px;
-	border-bottom-left-radius: 0px;
+	margin: 30px 0px;
+}
 
+
+.product_title{
+	font-weight: 700;
+	font-size: 25px;
+	text-align: left;
+	margin-left: -15px;
+	line-height: 1.2;
+	margin-bottom: 20px;
 }
 
 #download_info{
@@ -189,8 +196,8 @@ PRODUCT SECTION
 }
 
 .product_image{
-	width:80%;
-	max-width:300px;
+	width: 80%;
+	max-width: 225px;
 	vertical-align: middle;
 }
 
@@ -242,6 +249,7 @@ PRODUCT SECTION
 	font-size: 16px;
 	font-weight: 700;
 	display: inline-block;
+	cursor: pointer;
 
 	-webkit-transition: background-color 0.4s linear;
 	transition: background-color 0.4s linear;
@@ -260,6 +268,76 @@ PRODUCT SECTION
 /* hide non-default product modules */
 #s3_upsell_module, #l1_module{
 	display: none;
+}
+
+
+
+
+
+
+
+
+/*********************************************************
+UPSELL STUFF
+**********************************************************/
+
+.upsell_button{
+	border: none;
+	background-color: #0098db;
+	color: #fff;
+	border-radius: 3px;
+	padding: 15px 35px;
+	font-family: gothambook_load, sans-serif;
+	font-size: 20px;
+	font-weight: 700;
+	display: inline-block;
+	cursor: pointer;
+
+	-webkit-transition: background-color 0.4s linear;
+	transition: background-color 0.4s linear;
+
+	margin: 20px 0px;
+}
+
+.upsell_check_container{
+	padding: 10px 0px;
+	background: #fdba3d;
+
+	margin: 10px 5px 25px;
+}
+
+.upsell_check_box{
+	border: 3px solid #eee;
+	width: 50px;
+	height: 50px;
+	display: inline-block;
+	vertical-align: middle;
+	position: relative;
+	border-radius: 2px;
+	margin-right: 10px;
+}
+
+.upsell_check{
+	border-left: 5px solid green;
+	border-bottom: 5px solid green;
+
+	width: 35px;
+	height: 17px;
+	position: absolute;
+	left: 5px;
+	top: 8px;
+
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
+.upsell_text{
+	font-size: 23px;
+	display: inline-block;
+	position: relative;
+	top: 2px;
+
+	padding-bottom: 15px;
 }
 
 
@@ -295,10 +373,11 @@ REASONS TO BUY
 }
 
 .reason_header{
-	width: 60%;
+	width: 70%;
 	margin: auto;
-	padding: 20px 0px;
+	padding: 30px 0px 20px;
 	color: #554;
+	font-size: 25px;
 }
 
 .reason_blurb{
@@ -482,6 +561,11 @@ Breakpoints
 
 
 @media (min-width:700px) {
+	
+	.product_image{
+		padding-left: 35px;
+	}
+	
 	.product_bullets{
 		padding-left: 55px;
 	}
@@ -664,31 +748,31 @@ MASTHEAD
 
 		<div class="dropdown_container">
 			<select id="select_language" autocomplete="off">
-				<option value="" disabled selected>Select Your Next Language</option>
+				<option id="select_language_placeholder" value="" disabled selected>Select Your Next Language</option>
 				<option value="esp">Spanish (Latin America)</option>
-				<!-- <option value="eng">English (American)</option> -->
+				<option class="non-figss" value="eng">English (American)</option>
 				<option value="fra">French</option>
 				<option value="deu">German</option>
 				<option value="ita">Italian</option>
-				<!-- <option value="ara">Arabic</option>
-				<option value="chi">Chinese (Mandarin)</option>
-				<option value="ned">Dutch</option>
-				<option value="ebr">English (British)</option>
-				<option value="tgl">Filipino (Tagalog)</option>
-				<option value="grk">Greek</option>
-				<option value="heb">Hebrew</option>
-				<option value="hin">Hindi</option>
-				<option value="gle">Irish</option>
-				<option value="jpn">Japanese</option>
-				<option value="kor">Korean</option>
-				<option value="far">Persian (Farsi)</option>
-				<option value="pol">Polish</option>
-				<option value="por">Portuguese (Brazil)</option>
-				<option value="rus">Russian</option> -->
+				<option class="non-figss" value="ara">Arabic</option>
+				<option class="non-figss" value="chi">Chinese (Mandarin)</option>
+				<option class="non-figss" value="ned">Dutch</option>
+				<option class="non-figss" value="ebr">English (British)</option>
+				<option class="non-figss" value="tgl">Filipino (Tagalog)</option>
+				<option class="non-figss" value="grk">Greek</option>
+				<option class="non-figss" value="heb">Hebrew</option>
+				<option class="non-figss" value="hin">Hindi</option>
+				<option class="non-figss" value="gle">Irish</option>
+				<option class="non-figss" value="jpn">Japanese</option>
+				<option class="non-figss" value="kor">Korean</option>
+				<option class="non-figss" value="far">Persian (Farsi)</option>
+				<option class="non-figss" value="pol">Polish</option>
+				<option class="non-figss" value="por">Portuguese (Brazil)</option>
+				<option class="non-figss" value="rus">Russian</option>
 				<option value="esc">Spanish (Spain)</option>
-				<!-- <option value="sve">Swedish</option>
-				<option value="tur">Turkish</option>
-				<option value="vie">Vietnamese</option> -->
+				<option class="non-figss" value="sve">Swedish</option>
+				<option class="non-figss" value="tur">Turkish</option>
+				<option class="non-figss" value="vie">Vietnamese</option>
 			</select>
 		</div>
 
@@ -707,10 +791,11 @@ MASTHEAD
 	****************************************************** -->
 
 	<div id="download_plus_24_module" class="content_block product_section">
-		<img class="product_image" src="./assets/ipad-optimized.png" alt="rosetta stone is optimized for ipad">
+		<img class="product_image" src="./assets/download_newlp.png" alt="">
 
 		<ul class="product_bullets">
-			<li><span>Rosetta Stone&reg; download for your desktop computer</span></li>
+			<div class="product_title">Rosetta Stone&reg; <span class="language_name"></span> Download</div>
+			<li><span>Rosetta Stone&reg; Download for your desktop computer</span></li>
 			<li><span>Learn with our award-winning app for 24 months</span></li>
 			<li><span>Perfect pronunciation with live online tutoring</span></li>
 			<li><span>Practice what you've learned with our online games and social community</span></li>
@@ -724,7 +809,7 @@ MASTHEAD
 				<span class="dollar_sign">$</span><span>229</span>
 			</div>
 		</div>
-		<a id="add_to_cart" href="#" class="standard_button add_to_cart">Add to Cart</a>
+		<a id="add_to_cart_dl_plus_24" href="#" class="standard_button add_to_cart">Add to Cart</a>
 	</div>
 
 
@@ -739,23 +824,67 @@ MASTHEAD
 	****************************************************** -->
 
 	<div id="s3_upsell_module" class="content_block product_section">
-		<img class="product_image" src="./assets/ipad-optimized.png" alt="rosetta stone is optimized for ipad">
+		<img id="download_image" class="product_image" src="http://www.rosettastone.com/lp/catalogpages/img/computer-download.png" alt="">
+		<img id="box_image" style="display:none;" class="product_image" src="http://www.rosettastone.com/lp/catalogpages/img/box.png" alt="">
 
 		<ul class="product_bullets">
+			<div class="product_title">Rosetta Stone&reg; <span class="language_name"></span><br>CD or Download</div>
 			<li><span>Learn to share your ideas and opinions, express feelings, and talk everyday life. This includes your interests, profession, current events, and more.</span></li>
 			<li><span>Unlimited access for you and your family</span></li>
 			<li><span>Available as a CD-ROM or Download</span></li>
 		</ul>
 
 		<div>
+			<!-- CD or Download -->
+			<div id="delivery_options">
+				<label><input id="box_radio" value="box" type="radio" name="delivery_radio" autocomplete="off">CD</label>
+				<label><input id="download_radio" value="download" type="radio" name="delivery_radio" autocomplete="off" checked>Download</label>
+			</div>
+			
+
+			<!-- pricing -->
 			<div class="product_strikeprice">
 				<span class="dollar_sign">$</span><span>499</span>
 			</div>
 			<div class="product_mainprice">
 				<span class="dollar_sign">$</span><span>209</span>
 			</div>
+
+
+			<!-- UPSELL -->
+			<div>
+
+				<!-- button version -->
+				<!-- 
+				<div class="upsell_button">
+					Get the full Rosetta Stone for only $X more
+				</div>
+				<a href="#" style="text-decoration:underline; color:#06a; display:inline-block; margin-top:10px;">No, thanks. I just want the partial experience.</a>
+				 -->
+
+
+				<!-- checkbox version -->
+				 
+				<div class="upsell_check_container">
+					<span class="upsell_text">
+						Get all 5 levels of Rosetta Stone for only $X more
+					</span>
+
+					<div>
+						<div class="upsell_check_box">
+						</div>
+						Yes
+						<div class="upsell_check_box" style="margin-left:40px;">
+							<div class="upsell_check" style="border-color:red"></div>
+						</div>
+						No
+					</div>
+				</div>
+				<a id="add_to_cart_s3" href="#" class="standard_button add_to_cart">Add to Cart</a>
+				
+			</div>
 		</div>
-		<a id="add_to_cart" href="#" class="standard_button add_to_cart">Add to Cart</a>
+		<!-- <a id="add_to_cart_s3" href="#" class="standard_button add_to_cart">Add to Cart</a> -->
 	</div>
 
 
@@ -769,11 +898,12 @@ MASTHEAD
 	****************************************************** -->
 
 	<div id="l1_module" class="content_block product_section">
-		<img class="product_image" src="./assets/ipad-optimized.png" alt="rosetta stone is optimized for ipad">
+		<img class="product_image" src="http://www.rosettastone.com/lp/catalogpages/img/box.png" alt="">
 
 		<ul class="product_bullets">
-			<li><span>Gain Confidence by mastering basic conversational skills. This includes greetings, introductions, simple Q&As, and much more.</span></li>
-			<li><span>Unlimited Access for you and your family</span></li>
+			<div class="product_title">Rosetta Stone&reg; <span class="language_name"></span> Level 1 CD-ROM</div>
+			<li><span>Gain confidence by mastering basic conversational skills. This includes greetings, introductions, simple Q&As, and much more.</span></li>
+			<li><span>Unlimited access for you and your family</span></li>
 			<li><span>Available as a CD-ROM</span></li>
 		</ul>
 
@@ -785,7 +915,7 @@ MASTHEAD
 				<span class="dollar_sign">$</span><span>159</span>
 			</div>
 		</div>
-		<a id="add_to_cart" href="#" class="standard_button add_to_cart">Add to Cart</a>
+		<a id="add_to_cart_l1" href="#" class="standard_button add_to_cart">Add to Cart</a>
 	</div>
 
 
@@ -837,7 +967,7 @@ REASONS TO BUY
 		<div class="reason_blurb">
 			<img src="./assets/features-1.jpg" alt="">
 			<div class="reason_text">
-				<div class="reason_title">1. 20 years of successful outcomes</div>
+				<div class="reason_title">1. 20 years of successful outcomes.</div>
 				Millions of people around the world have succeeded with our award-winning method. So can you.
 			</div>
 		</div>
@@ -845,16 +975,16 @@ REASONS TO BUY
 		<div class="reason_blurb">
 			<img src="./assets/features-2.jpg" alt="">
 			<div class="reason_text">
-				<div class="reason_title">2. 20 years of successful outcomes</div>
-				Millions of people around the world have succeeded with our award-winning method. So can you.
+				<div class="reason_title">2. Flexible enough to keep up with you.</div>
+				Get started on desktop or laptop. Keep learning on your tablet or smartphone.  Whether you have a little time or a lot, our multi-device language-learning platform keeps pace with your conversation goals.
 			</div>
 		</div>
 
 		<div class="reason_blurb">
 			<img src="./assets/features-3.jpg" alt="">
 			<div class="reason_text">
-				<div class="reason_title">3. 20 years of successful outcomes</div>
-				Millions of people around the world have succeeded with our award-winning method. So can you.
+				<div class="reason_title">3. You'll start speaking immediately.</div>
+				You've always wanted to learn a new language.  Rosetta Stone&reg; Language Learning gets you speaking from lesson one.  <b>So why not get started now?</b>
 			</div>
 		</div>
 
@@ -1001,6 +1131,15 @@ FOOTER
 
 <script>
 
+/************************************************************
+GLOBAL VARIABLES
+*************************************************************/
+
+var current_lang = ''; // "esp" for example
+
+
+
+
 
 /************************************************************
 URL PARAMETER HELPER FUNCTIONS
@@ -1028,6 +1167,85 @@ function getParameter(param){
 
 
 
+
+
+/************************************************************
+HANDLE LANGUAGES
+*************************************************************/
+
+function update_languages(lang_code){
+	current_lang = lang_code;
+
+	var lang_map = {
+		"esp": 'Spanish',
+		"eng": 'English',
+		"fra": 'French',
+		"deu": 'German',
+		"ita": 'Italian',
+		"ara": 'Arabic',
+		"chi": 'Chinese',
+		"ned": 'Dutch',
+		"ebr": 'English',
+		"tgl": 'Filipino',
+		"grk": 'Greek',
+		"heb": 'Hebrew',
+		"hin": 'Hindi',
+		"gle": 'Irish',
+		"jpn": 'Japanese',
+		"kor": 'Korean',
+		"far": 'Persian',
+		"pol": 'Polish',
+		"por": 'Portuguese',
+		"rus": 'Russian',
+		"esc": 'Spanish',
+		"sve": 'Swedish',
+		"tur": 'Turkish',
+		"vie": 'Vietnamese'
+	}
+	var places_to_update = document.querySelectorAll('.language_name');
+	var lang = lang_map[lang_code];
+
+	for(var i=0; i<places_to_update.length; i++){
+		places_to_update[i].innerHTML = lang;
+	}
+}
+
+
+// if language parameter, change selected language
+if(parameterExists('lang')){
+	
+	// remove "select language" placeholder
+	document.getElementById('select_language').removeChild(document.getElementById('select_language_placeholder'));
+
+	var lang_code = getParameter('lang');
+	document.getElementById('select_language').value = lang_code;
+	update_languages(lang_code);
+}
+
+
+
+
+
+
+
+
+
+/************************************************************
+HANDLE PRODUCTS
+*************************************************************/
+
+// handle download plus 24-month
+if(!parameterExists('product') || parameterMatches('product','download')){
+
+	// remove non-figss languages due to sku availability
+	var non_figss = document.getElementById('select_language').querySelectorAll('.non-figss');
+	for(var i=0; i<non_figss.length; i++){
+		non_figss[i].parentElement.removeChild(non_figss[i]);
+	}
+}
+
+
+
 // handle S3 product
 if(parameterMatches('product','s3')){
 	document.getElementById('download_plus_24_module').style.display = 'none';
@@ -1046,10 +1264,36 @@ if(parameterMatches('product','l1')){
 
 
 
-// if language parameter, change selected language
-if(parameterExists('lang')){
-	document.getElementById('select_language').value = getParameter('lang');
+
+
+
+
+
+
+
+
+
+/************************************************************
+DELIVERY OPTIONS (DOWNLOAD OR CD)
+*************************************************************/
+
+function handle_delivery_options(box_or_download){
+	var other = box_or_download=='box' ? 'download':'box';
+
+	// show correct image
+	document.getElementById(box_or_download+'_image').style.display = 'inline-block';
+	document.getElementById(other+'_image').style.display = 'none';
 }
+
+document.getElementById('box_radio').onclick = function(){
+	handle_delivery_options('box');
+};
+
+document.getElementById('download_radio').onclick = function(){
+	handle_delivery_options('download');
+};
+
+
 
 
 
@@ -1100,13 +1344,15 @@ SOCIAL PROOF SLIDESHOW
 
 // put cart url stuff here
 
-var cart_button = document.getElementById('add_to_cart');
+var cart_button = document.getElementById('add_to_cart_s3');
 cart_button.href = 'http://www.rosettastone.com/';
 
 var lang_code = '';
 
 document.getElementById('select_language').onchange = function(){
 	lang_code = this.value;
+	update_languages(this.value);
+
 	cart_button.href = 'http://www.rosettastone.com/get-'+lang_code;
 };
 
@@ -1114,7 +1360,16 @@ document.getElementById('select_language').onchange = function(){
 
 // RSI({"cat": "esp", "family": "totale"})[0]
 
-
+/*
+// download + 24m skus
+var exp_a_skus = {
+	'fra': '99334',
+	'deu': '99340',
+	'ita': '99337',
+	'esp': '99331',
+	'esc': '99343'
+};
+*/
 
 
 </script>
