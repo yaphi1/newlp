@@ -1495,16 +1495,25 @@ function update_languages(lang_code){
 
 // if language parameter, change selected language
 if(parameterExists('lang')){
-	
-	// remove "select language" placeholder
-	document.getElementById('select_language').removeChild(document.getElementById('select_language_placeholder'));
 
+	var dropdown = document.getElementById('select_language');
+
+	// get lang from url parameter
 	var lang_code = getParameter('lang');
-	document.getElementById('select_language').value = lang_code;
-	update_languages(lang_code);
+
+	// try to set dropdown equal to language in url
+	dropdown.value = lang_code;
+
+	// if the language exists in the dropdown for the current experience
+	if(dropdown.value){
+
+		update_languages(lang_code);
+
+		// remove "select language" placeholder
+		document.getElementById('select_language').removeChild(document.getElementById('select_language_placeholder'));
+	}
 }
-else{
-}
+
 
 
 
@@ -1713,7 +1722,9 @@ SOCIAL PROOF SLIDESHOW
 
 
 
-// put cart url stuff here
+/**********************************************************
+CART URL GENERATOR
+***********************************************************/
 
 function update_cart_button(){
 	var cart_button = document.getElementById(current.cart_button_id);
@@ -1760,18 +1771,6 @@ function ensure_correct_skus(url){
 
 
 
-// RSI({"cat": "esp", "family": "totale"})[0]
-
-/*
-// download + 24m skus
-var exp_a_skus = {
-	'fra': '99334',
-	'deu': '99340',
-	'ita': '99337',
-	'esp': '99331',
-	'esc': '99343'
-};
-*/
 
 
 </script>
