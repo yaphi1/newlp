@@ -118,6 +118,8 @@ SELECT LANGUAGE & FIVE PAY
 	background-size: 900px 100%;
 	background-position: 50% 50%;
 	background-attachment: fixed;
+
+	padding: 25px 10px;
 }
 
 .five_pay_message{
@@ -154,6 +156,23 @@ SELECT LANGUAGE & FIVE PAY
 	border-top: 7px solid #fff;
 	border-right: 7px solid transparent;
 	border-left: 7px solid transparent;
+}
+
+.dropdown_glow{
+	box-shadow: 0px 0px 30px 8px #FFF;
+	-webkit-animation: glow 1.5s linear 0s infinite alternate;
+	animation: glow 1.5s linear 0s infinite alternate;
+
+}
+
+@-webkit-keyframes glow{
+	from { background-color: #0098DB; }
+	to { background-color: #1af; }
+}
+
+@keyframes glow{
+	from { background-color: #069; }
+	to { background-color: #1af; }
 }
 
 #select_language{
@@ -221,6 +240,7 @@ PRODUCT SECTION
 	vertical-align: top;
 	position: relative;
 	top: 3px;
+	font-family: gothambook;
 }
 
 .product_strikeprice{
@@ -268,6 +288,17 @@ PRODUCT SECTION
 .standard_button:hover{
 	background-color: #00b8fb;
 }
+
+.disabled_button{
+	background-color: #8b8d8e;
+	cursor: default;
+}
+
+.disabled_button:hover{
+	background-color: #8b8d8e;
+}
+
+
 
 .add_to_cart{
 	text-transform: uppercase;
@@ -432,6 +463,7 @@ REASONS TO BUY
 	color: #0098db;
 	font-weight: 700;
 	padding: 10px 0px;
+	font-size: 20px;
 }
 
 .get_started_button{
@@ -644,15 +676,63 @@ MASTHEAD STYLES
 
 .masthead{
 	background-color: #333;
-	background-image: url('http://www.rosettastone.com/lp/globals/img/mastheads/mobile/mobilecboi.jpg');
+	/*background-image: url('http://www.rosettastone.com/lp/globals/img/mastheads/mobile/mobilecboi.jpg');*/
+	background-image: url('http://www.rosettastone.com/lp/globals/img/mastheads/mobile/gracegift.jpg');
+
 	background-size: 100% 100%;
 	height: 150px;
+	position: relative;
+}
+
+.masthead_price_container{
+	position: absolute;
+	left: 3%;
+	bottom: 3%;
+	color: #fff;
+	line-height: 1;
+}
+
+.masthead_mainprice{
+	font-size: 40px;
+	font-family: gothambold;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.reg_strike{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.masthead_reg{
+	font-size: 10px;
+	vertical-align: middle;
+	/*display: inline-block;*/
+}
+
+.masthead_strikeprice{
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 22px;
+}
+
+.masthead_strikeprice:after{
+	content: '';
+	position: absolute;
+	width: 103%;
+	height: 2px;
+	background: #e12;
+	left: 0px;
+	top: 50%;
 }
 
 @media (min-width:400px) {
 	.masthead{
 		height: 200px;
 	}
+
+	.masthead_mainprice{ font-size: 50px; }
 }
 
 @media (min-width:600px) {
@@ -660,12 +740,20 @@ MASTHEAD STYLES
 		background-image: url('http://www.rosettastone.com/lp/globals/img/mastheads/sbs/gracegift.jpg');
 		height: 240px;
 	}
+
+	.masthead_mainprice{ font-size: 65px; }
+	.masthead_reg{ font-size: 12px; display: inline-block; }
+	.masthead_strikeprice{ font-size: 28px; }
 }
 
 @media (min-width:900px) {
 	.masthead{
 		height: 300px;
 	}
+
+	.masthead_mainprice{ font-size: 95px; }
+	.masthead_reg{ font-size: 16px; }
+	.masthead_strikeprice{ font-size: 40px; }
 }
 
 @media (min-width:1200px) {
@@ -761,7 +849,19 @@ TOP BAR
 MASTHEAD
 ********************************************************** -->
 
-<div class="masthead"></div>
+<div class="masthead">
+	<div class="masthead_price_container">
+		<div class="masthead_mainprice">
+			<span class="dollar_sign">$</span><span class="main_price">249</span>
+		</div>
+		<div class="reg_strike">
+			<div class="masthead_reg">REG</div>
+			<div class="masthead_strikeprice">
+				<span class="dollar_sign">$</span><span class="main_msrp">499</span>
+			</div>
+		</div>
+	</div>
+</div>
 
 
 
@@ -781,7 +881,7 @@ MASTHEAD
 
 
 
-<div class="content_section">
+<div id="content_container" class="content_section">
 
 
 
@@ -791,9 +891,9 @@ MASTHEAD
 
 	<div class="content_block select_language_section">
 		<div class="five_pay_message">Only 5 easy payments of</div>
-		<div class="five_pay_container"><span id="five_pay">$46</span><sup>/mo.</sup></div>
+		<div class="five_pay_container">$<span id="five_pay">46</span><sup>/mo.</sup></div>
 
-		<div class="dropdown_container">
+		<div id="select_language_dropdown_bg" class="dropdown_container">
 			<select id="select_language" autocomplete="off">
 				<option id="select_language_placeholder" value="" disabled selected>Select Your Next Language</option>
 				<option value="esp">Spanish (Latin America)</option>
@@ -850,10 +950,10 @@ MASTHEAD
 
 		<div>
 			<div class="product_strikeprice">
-				<span class="dollar_sign">$</span><span>499</span>
+				<span class="dollar_sign">$</span><span class="main_msrp">499</span>
 			</div>
 			<div class="product_mainprice">
-				<span class="dollar_sign">$</span><span>229</span>
+				<span class="dollar_sign">$</span><span class="main_price">229</span>
 			</div>
 		</div>
 
@@ -877,7 +977,12 @@ MASTHEAD
 
 		<ul class="product_bullets">
 			<div class="product_title">Rosetta Stone&reg; <span class="language_name"></span><br>CD or Download</div>
-			<li><span>Learn to share your ideas and opinions, express feelings, and talk everyday life. This includes your interests, profession, current events, and more.</span></li>
+			<div id="s3_product_copy">
+				<li><span>Learn to share your ideas and opinions, express feelings, and talk everyday life. This includes your interests, profession, current events, and more.</span></li>
+			</div>
+			<div id="s5_product_copy" style="display:none;">
+				<li><span>Develop your command of the language &mdash; read, write, speak, and understand with Levels 1-5, the complete language set.</span></li>
+			</div>
 			<li><span>Unlimited access for you and your family</span></li>
 			<li><span>Available as a CD-ROM or Download</span></li>
 
@@ -895,10 +1000,10 @@ MASTHEAD
 			<!-- pricing -->
 			<div>
 				<div class="product_strikeprice">
-					<span class="dollar_sign">$</span><span>499</span>
+					<span class="dollar_sign">$</span><span class="main_msrp">499</span>
 				</div>
 				<div class="product_mainprice">
-					<span class="dollar_sign">$</span><span>209</span>
+					<span class="dollar_sign">$</span><span class="main_price">209</span>
 				</div>
 			</div>
 
@@ -906,16 +1011,16 @@ MASTHEAD
 			<!-- UPSELL -->
 			<div id="upsell" class="upsell">
 				<div class="upsell_text">
-					Get <b>all 5 levels</b> of Rosetta Stone for <b>only $XX</b> more
+					Get <b>all 5 levels</b> of Rosetta Stone for <b>only $<span id="upsell_amount">XX<span></b> more
 				</div>
 
 				<div>
 					<label>
-						<input value="yes" type="radio" name="upsell_radio" autocomplete="off">
+						<input id="upsell_yes" value="yes" type="radio" name="upsell_radio" autocomplete="off">
 						Yes, please!
 					</label>
 					<label>
-						<input value="no" type="radio" name="upsell_radio" autocomplete="off" checked>
+						<input id="upsell_no" value="no" type="radio" name="upsell_radio" autocomplete="off" checked>
 						No, thanks
 					</label>
 				</div>
@@ -949,10 +1054,10 @@ MASTHEAD
 
 		<div>
 			<div class="product_strikeprice">
-				<span class="dollar_sign">$</span><span>499</span>
+				<span class="dollar_sign">$</span><span class="main_msrp">499</span>
 			</div>
 			<div class="product_mainprice">
-				<span class="dollar_sign">$</span><span>159</span>
+				<span class="dollar_sign">$</span><span class="main_price">159</span>
 			</div>
 		</div>
 		<a id="add_to_cart_l1" href="#" class="standard_button add_to_cart">Add to Cart</a>
@@ -1029,7 +1134,7 @@ REASONS TO BUY
 		</div>
 
 
-		<a class="standard_button get_started_button" href="#">Get Started</a>
+		<a id="get_started_button" class="standard_button get_started_button" href="#">Get Started</a>
 
 	</div>
 </div>
@@ -1216,7 +1321,8 @@ var current = {
 	lang : '', // "esp" for example
 	lvl : 'S5',
 	media : 'download',
-	cart_button_id : 'add_to_cart_dl_plus_24'
+	cart_button_id : 'add_to_cart_dl_plus_24',
+	special_experience : ''
 };
 
 
@@ -1266,6 +1372,8 @@ function getParameter(param){
 
 
 
+
+
 /************************************************************
 HANDLE PRODUCTS
 *************************************************************/
@@ -1278,6 +1386,8 @@ if(!parameterExists('product') || parameterMatches('product','download')){
 	for(var i=0; i<non_figss.length; i++){
 		non_figss[i].parentElement.removeChild(non_figss[i]);
 	}
+
+	current.special_experience = 'download_plus_24';
 }
 
 
@@ -1328,18 +1438,24 @@ HANDLE LANGUAGES
 
 function update_languages(lang_code){
 	current.lang = lang_code;
-	console.log(current.lang);
-	update_cart_button();
 
 
 	// if S5 is available, show upsell (otherwise, hide it)
 	var upsell = document.getElementById('upsell');
 	if(RSI({cat:current.lang, lvl:'S5', media:current.media})[0]){
 		upsell.style.display = 'block';
+
+		// if the user had S5 checked before switching languages and they switch back, keep them on S5
+		if(document.getElementById('upsell_yes').checked){
+			show_s5();
+		}
 	}
 	else{
 		upsell.style.display = 'none';
+		show_s3();
 	}
+
+	update_cart_button();
 
 
 	var lang_map = {
@@ -1387,6 +1503,8 @@ if(parameterExists('lang')){
 	document.getElementById('select_language').value = lang_code;
 	update_languages(lang_code);
 }
+else{
+}
 
 
 
@@ -1419,6 +1537,10 @@ function handle_delivery_options(box_or_download){
 	// show correct image
 	document.getElementById(box_or_download+'_image').style.display = 'inline-block';
 	document.getElementById(other+'_image').style.display = 'none';
+
+	// update cart url
+	current.media = box_or_download;
+	update_cart_button();
 }
 
 document.getElementById('box_radio').onclick = function(){
@@ -1428,6 +1550,88 @@ document.getElementById('box_radio').onclick = function(){
 document.getElementById('download_radio').onclick = function(){
 	handle_delivery_options('download');
 };
+
+
+
+
+
+
+
+
+
+
+
+
+/************************************************************
+HANDLE PRICES
+*************************************************************/
+
+function update_prices(){
+
+	// get price data
+	var data = RSI({lvl:current.lvl, media:current.media})[0];
+	var price = data.price;
+	var msrp = data.msrp;
+	var five_pay = Math.ceil(price/5);
+	var upsell = RSI({lvl:'S5'})[0].price - RSI({lvl:'S3'})[0].price;
+
+	// get all msrp and price elements that need to change
+	var msrp_text = document.querySelectorAll('.main_msrp');
+	var price_text = document.querySelectorAll('.main_price');
+
+	// update prices and msrp
+	for(var i=0; i<msrp_text.length; i++){
+		msrp_text[i].innerHTML = msrp;
+		price_text[i].innerHTML = price;
+	}
+
+	// update 5-pay and upsell
+	document.getElementById('five_pay').innerHTML = five_pay;
+	document.getElementById('upsell_amount').innerHTML = upsell;
+
+	// make cart match new prices
+	update_cart_button();
+}
+
+update_prices();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/************************************************************
+UPSELL
+*************************************************************/
+
+// upsell checkbox handlers
+document.getElementById('upsell_yes').onclick = show_s5;
+document.getElementById('upsell_no').onclick = show_s3;
+
+function show_s5(){
+	current.lvl = 'S5';
+	document.getElementById('s3_product_copy').style.display = 'none';
+	document.getElementById('s5_product_copy').style.display = 'block';
+	update_prices();
+}
+
+function show_s3(){
+	current.lvl = 'S3';
+	document.getElementById('s5_product_copy').style.display = 'none';
+	document.getElementById('s3_product_copy').style.display = 'block';
+	update_prices();
+}
+
+
+
 
 
 
@@ -1513,7 +1717,42 @@ SOCIAL PROOF SLIDESHOW
 
 function update_cart_button(){
 	var cart_button = document.getElementById(current.cart_button_id);
-	cart_button.href = RSI({cat:current.lang, lvl:current.lvl, media:current.media})[0].cart;
+
+	// first make sure a language has been selected
+	if(current.lang){
+		var url = RSI({cat:current.lang, lvl:current.lvl, media:current.media})[0].cart;
+
+		// ensure correct skus (even if there's a special experience, like download + 24 month)
+		cart_button.href = ensure_correct_skus(url);
+
+		// remove smoothscroll from cart button
+		cart_button.onclick = undefined;
+
+		// make sure cart button is no longer gray
+		document.getElementById(current.cart_button_id).className = 'standard_button add_to_cart';
+
+		// remove glow from language dropdown
+		document.getElementById('select_language_dropdown_bg').className = 'dropdown_container';
+	}
+}
+
+
+function ensure_correct_skus(url){
+	
+	// if download plus 24, change skus from default
+	if(current.special_experience=='download_plus_24'){
+		var download_plus_24_skus = {
+			'fra': '99334',
+			'deu': '99340',
+			'ita': '99337',
+			'esp': '99331',
+			'esc': '99343'
+		};
+		return url.replace(/sku\/[\d]+\//i, 'sku/'+download_plus_24_skus[current.lang]+'/') + 'DOWN';
+	}
+	else{
+		return url;
+	}
 }
 
 
@@ -1536,5 +1775,54 @@ var exp_a_skus = {
 
 
 </script>
+
+
+
+
+
+<!-- jquery is necessary for DTM and smooth scroll, so don't remove -->
+<script src="./js/jquery.js"></script>
+<script>
+
+/**********************************************************
+SMOOTH SCROLL
+***********************************************************/
+function smoothScrollTo(scrolltargetid){
+    $('html,body').animate({scrollTop : document.getElementById(scrolltargetid).getBoundingClientRect().top + window.scrollY}, 'fast');
+    return false;
+}
+
+
+
+/**********************************************************
+IF NO LANGUAGE SELECTED - don't let user add to cart
+***********************************************************/
+if(!current.lang){
+	var cart = document.getElementById(current.cart_button_id);
+	
+	// gray out the add to cart button
+	cart.className = 'standard_button add_to_cart disabled_button';
+	
+	// make cart button bring user to language dropdown
+	cart.onclick = function(){
+		smoothScrollTo('content_container');
+		document.getElementById('select_language_dropdown_bg').className = 'dropdown_container dropdown_glow';
+		return false;
+	};
+}
+
+
+
+/**********************************************************
+GET STARTED BUTTON - smooth scroll to choose language section
+***********************************************************/
+document.getElementById('get_started_button').onclick = function(){
+	smoothScrollTo('content_container');
+	return false;
+};
+</script>
+
+<!-- Adobe DTM -->
+<!-- <script src="http://www.rosettastone.com/lp/dtm/dtm_including_footer.js"></script> -->
 </body>
 </html>

@@ -1,0 +1,23 @@
+
+
+dl + 24
+	[DONE] use special skus
+
+
+
+s3 with upsell
+	[DONE] if lang changes, make sure S5 only available when appropriate
+	[DONE] if upsell selected, change prices and copy
+
+
+
+L1
+
+
+
+
+general
+	[DONE] if no lang selected, prevent add to cart
+	[DONE] if lang changes, change add to cart
+	[DONE] when product in url changes, update all prices
+
