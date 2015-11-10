@@ -1046,7 +1046,7 @@ MASTHEAD
 		<img class="product_image" src="./assets/generic_v4_box.png" alt="">
 
 		<ul class="product_bullets">
-			<div class="product_title">Rosetta Stone&reg; <span class="language_name"></span> Level 1 CD-ROM</div>
+			<div class="product_title">Rosetta Stone&reg; <span class="language_name"></span><br>Level 1 CD-ROM</div>
 			<li><span>Gain confidence by mastering basic conversational skills. This includes greetings, introductions, simple Q&As, and much more.</span></li>
 			<li><span>Unlimited access for you and your family</span></li>
 			<li><span>Available as a CD-ROM</span></li>
@@ -1265,7 +1265,7 @@ FOOTER
 	<a href="#"><img class="footer_social_icon" src="./assets/yt.svg"></a>
 	<a href="#"><img class="footer_social_icon" src="./assets/gplus.svg"></a>
 	<div class="copyright">
-		&copy; 1999-2015 Rosetta Stone Ltd.
+		&copy; 1999-<span id="copyyear">2015</span> Rosetta Stone Ltd.
 		<br>All Rights Reserved.
 	</div>
 </div>
@@ -1689,6 +1689,18 @@ SOCIAL PROOF SLIDESHOW
 
 
 
+
+
+
+
+
+
+
+
+/*******************************************************
+COPYRIGHT - make sure year is always correct
+********************************************************/
+document.getElementById('copyyear').innerHTML = new Date().getFullYear();
 
 
 
