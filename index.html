@@ -621,6 +621,16 @@ FOOTER
 	font-size: 14px;
 }
 
+.legalese{
+	margin: auto;
+	font-size: 12px;
+	text-align: left;
+	max-width: 800px;
+	border-top: 1px solid #aaa;
+	padding-top: 10px;
+	margin-top: 40px;
+}
+
 
 
 
@@ -724,59 +734,75 @@ MASTHEAD STYLES
 	position: relative;
 }
 
-.masthead_price_container{
+#offerbox{
 	position: absolute;
 	left: 3%;
 	bottom: 3%;
 	color: #fff;
+	text-shadow: 0px 1px 7px #000;
 	line-height: 1;
 }
 
-.masthead_mainprice{
+
+#offerbox sup{
+	font-size: 0.55em;
+	vertical-align: top;
+	position: relative;
+	top: 3px;
+	font-family: gothambook;
+}
+
+#sale-price{
 	font-size: 40px;
 	font-family: gothambold;
 	display: inline-block;
 	vertical-align: middle;
+	padding-right: 0.1em;
 }
 
-.reg_strike{
+#regular-price{
 	display: inline-block;
 	vertical-align: middle;
 }
 
-.masthead_reg{
+#regular-price > span:first-of-type{
 	font-size: 10px;
 	vertical-align: middle;
+	display: block;
 }
 
-.masthead_strikeprice{
+#regular-price{
 	position: relative;
 	display: inline-block;
 	vertical-align: middle;
 	font-size: 22px;
 }
 
-.masthead_strikeprice:after{
+#regular-price > span:last-of-type{
+	vertical-align: middle;
+	position: relative;
+	margin-left: -.2em;
+}
+
+#regular-price > span:last-of-type:after{
 	content: '';
 	position: absolute;
-	width: 103%;
+	width: 110%;
 	height: 2px;
 	background: #e12;
-	left: 0px;
+	left: -5%;
 	top: 50%;
 }
 
-.masthead_tophtml{
+#offertext{
 	text-transform: uppercase;
 	font-size: 12px;
 }
 
 @media (min-width:400px) {
-	.masthead{
-		height: 200px;
-	}
+	.masthead{ height: 200px; }
 
-	.masthead_mainprice{ font-size: 50px; }
+	#sale-price{ font-size: 50px; }
 }
 
 @media (min-width:600px) {
@@ -785,27 +811,23 @@ MASTHEAD STYLES
 		height: 240px;
 	}
 
-	.masthead_mainprice{ font-size: 65px; }
-	.masthead_reg{ font-size: 12px; display: inline-block; }
-	.masthead_strikeprice{ font-size: 28px; }
-	.masthead_tophtml{ font-size: 17px; }
+	#sale-price{ font-size: 65px; }
+	#regular-price > span:first-of-type{ font-size: 12px; display: inline-block; }
+	#regular-price{ font-size: 28px; }
+	#offertext{ font-size: 17px; }
 }
 
 @media (min-width:900px) {
-	.masthead{
-		height: 300px;
-	}
+	.masthead{ height: 300px; }
 
-	.masthead_mainprice{ font-size: 95px; }
-	.masthead_reg{ font-size: 16px; }
-	.masthead_strikeprice{ font-size: 40px; }
-	.masthead_tophtml{ font-size: 20px; }
+	#sale-price{ font-size: 95px; }
+	#regular-price > span:first-of-type{ font-size: 16px; }
+	#regular-price{ font-size: 40px; }
+	#offertext{ font-size: 20px; }
 }
 
 @media (min-width:1200px) {
-	.masthead{
-		height: 370px;
-	}
+	.masthead{ height: 370px; }
 }
 
 
@@ -1027,15 +1049,6 @@ TOP BAR
 
 
 
-<!-- *********************************************************
-VIOLATOR
-********************************************************** -->
-<div id="violator">
-	Sale Ends Soon!
-</div>
-
-
-
 
 
 
@@ -1067,27 +1080,44 @@ CLOCK
 
 
 
+
+
+
+
 <!-- *********************************************************
-MASTHEAD
+MASTHEAD AND VIOLATOR
 ********************************************************** -->
 
-<div id="masthead" class="masthead">
-	<div class="masthead_price_container">
-		<div class="masthead_tophtml">
+<!--##OFFERDIV##--> <!--/##OFFERDIV##-->
+
+<div id="violator" style="display:none"></div>
+
+<div class="masthead" id="masthead">
+	<!-- <img src="" id="violator" style="display:none" /> -->
+	<div id="everystory" style=""></div>
+
+	<div id="offerbox">
+
+		<div id="offertext">
 			Start now for just
 		</div>
-		<div class="masthead_mainprice">
-			<span class="dollar_sign">$</span><span class="main_price">249</span>
-		</div>
-		<div class="reg_strike">
-			<div class="masthead_reg">REG</div>
-			<div class="masthead_strikeprice">
-				<span class="dollar_sign">$</span><span class="main_msrp">499</span>
-			</div>
-		</div>
-	</div>
-</div>
 
+		<div id="sale-price">
+			<sup>$</sup><%= strikeThrough[1] %>
+		</div>
+
+		<div id="regular-price">
+			<span>REG</span>
+			<sup>$</sup>
+			<span>
+				<span class="strikethrough"></span>
+				<%= strikeThrough[0] %>
+			</span>
+		</div>
+
+
+	</div><!-- /offerbox -->
+</div> <!-- /masthead -->
 
 
 
@@ -1485,18 +1515,44 @@ FOOTER
 ********************************************************** -->
 
 <div class="footer">
-	<a href="#"><img class="footer_social_icon" src="./assets/fb.svg"></a>
-	<a href="#"><img class="footer_social_icon" src="./assets/twitter.svg"></a>
-	<a href="#"><img class="footer_social_icon" src="./assets/yt.svg"></a>
-	<a href="#"><img class="footer_social_icon" src="./assets/gplus.svg"></a>
+	<a href="https://www.facebook.com/RosettaStone"><img class="footer_social_icon" src="./assets/fb.svg"></a>
+	<a href="https://twitter.com/rosettastone"><img class="footer_social_icon" src="./assets/twitter.svg"></a>
+	<a href="http://www.youtube.com/user/rosettastone"><img class="footer_social_icon" src="./assets/yt.svg"></a>
+	<a href="https://plus.google.com/+RosettaStone"><img class="footer_social_icon" src="./assets/gplus.svg"></a>
 	<div class="copyright">
 		&copy; 1999-<span id="copyyear">2015</span> Rosetta Stone Ltd.
 		<br>All Rights Reserved.
+	</div>
+
+	<div class="legalese">
+		<b>OFFER DETAILS</b>
+
+		<p>Free shipping on products shipped within the U.S. only. Offer limited to purchases made directly from Rosetta Stone and cannot be combined with any other offer. Offer valid through <span id="expirationdate">11/19/2015 at 11:59PM EST</span> while quantities last. Online services must be activated within 6 months of purchase or are subject to forfeiture. Mobile apps are not available for Arabic and Persian (Farsi).</p>
+
+		<p>The 5-Pay Easy Payment plan is available for select orders with a billing address in the U.S. only. The first payment of 20% of the total price is charged when the order is placed (plus tax). Four additional payments of 20% will be charged monthly thereafter, with 0% APR and no interest charges from Rosetta Stone.</p>
+
+		<p>† 3 months online access included with purchase for one user.</p>
+
+		<p>The thirty-day (30-day) money back guarantee is limited to software purchases made directly from Rosetta Stone, and does not apply to any supplemental purchases, including additional online access, subscription renewals, and headsets.</p>
+		
+		<b>CUSTOMER SUPPORT</b>
+		<p>1.800.ROSETTA</p>
 	</div>
 </div>
 
 
 
+
+
+
+
+
+
+
+<!--*******************************************************
+RSI STUFF FROM TEMPLATE
+********************************************************-->
+<!--##MODEL##--> <!--/##MODEL##-->
 
 
 <script>
@@ -1828,6 +1884,10 @@ function update_prices(num){
 		price_text[i].innerHTML = price;
 	}
 
+	// update masthead prices
+	document.getElementById('sale-price').innerHTML = '<sup>$</sup>' + price;
+	document.getElementById('regular-price').querySelectorAll('span')[1].innerHTML = msrp;
+
 	// update 5-pay and upsell
 	document.getElementById('five_pay').innerHTML = five_pay;
 	document.getElementById('upsell_amount').innerHTML = upsell;
@@ -2077,9 +2137,19 @@ document.getElementById('get_started_button').onclick = function(){
 </script>
 
 
-<!-- put crescendo scripts here -->
-<!-- <script src="http://www.rosettastone.com/lp/globals/scripts/crescendo.js"></script> -->
 
+
+
+
+<!--**********************************************************
+CRESCENDO STUFF (violators, clocks, etc)
+***********************************************************-->
+
+
+<!-- crescendo script -->
+<script src="http://www.rosettastone.com/lp/globals/scripts/crescendo.js"></script>
+
+<!-- clock script -->
 <script>
 function getTimeRemaining(endtime){
 	var t = new Date(endtime) - Date.parse(new Date());
@@ -2116,11 +2186,16 @@ function startClock(endtime){
 	var timeinterval = setInterval(updateClock,1000);
 }
 
-startClock(Date.parse(new Date())+(1000*60*60*3));
+// startClock(Date.parse(new Date())+(1000*60*60*3));
 
 </script>
 
-<!-- Adobe DTM -->
+
+
+
+<!--**********************************************************
+ADOBE DTM
+***********************************************************-->
 <!-- <script src="http://www.rosettastone.com/lp/dtm/dtm_including_footer.js"></script> -->
 </body>
 </html>
